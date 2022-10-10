@@ -1,0 +1,52 @@
+
+### Get all users
+
+GET http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/users
+
+### Get all users with slash
+
+GET http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/users/
+
+### Get user id 1
+
+GET http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/user/1
+
+### Get user id 1 with forward slash
+
+GET http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/user/1/
+
+### Get user id 2
+
+GET http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/user/2/
+
+
+
+### Post avatar2.png for user 1
+
+POST http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/avatar/1
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="avatar"; filename="avatar2.png"
+
+< ../../src/main/resources/avatars/avatar2.png
+--boundary--
+
+### Get avatar for user 1
+
+GET http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/avatar/1
+
+### Update avatar for user 1
+
+PUT http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/avatar/1
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="avatar"; filename="avatar1.png"
+
+< ../../src/main/resources/avatars/avatar1.png
+--boundary--
+
+### Delete avatar for user 1
+
+DELETE http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/avatar/1

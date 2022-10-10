@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dcc08b68-4fb3-41b1-96f8-3c1044b987d2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-10-10T173624.200.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-10-10T173653.200.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requests.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/entity/Achievement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/repository/AchievementRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/service/AchievementService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/configuration/InitializedData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/datastore/DataStore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/digest/Sha256Utility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/entity/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/repository/GameRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/service/GameService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/repository/Repository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/serialization/CloningUtility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/servlet/HttpHeaders.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/servlet/MimeTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/servlet/ServletUtility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/servlet/UrlFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/stringUtils/StringUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/user/dto/CreateUserRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/user/dto/GetUserResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/user/dto/GetUsersResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/user/repository/UserAvatarRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/user/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/user/service/UserAvatarService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/user/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/user/servlet/UserAvatarServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/user/servlet/UserServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/liberty/config/server.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/beans.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="HTTP Request" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2FwLw3t1SNnaAVsnNHKry7EnGmf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mkuczynski11/Desktop/studia/7_sem/lab/JakartaEE&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;XML&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mkuczynski11\Desktop\studia\7_sem\lab\JakartaEE\src\main\resources\avatars" />
+      <recent name="C:\Users\mkuczynski11\Desktop\studia\7_sem\lab\JakartaEE\src\main\liberty\config" />
+      <recent name="C:\Users\mkuczynski11\Desktop\studia\7_sem\lab\JakartaEE\src\main\liberty" />
+    </key>
+  </component>
+  <component name="RunManager" selected="HTTP Request.requests | Get avatar for user 1">
+    <configuration name="requests | Delete avatar for user 1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/requests.http" index="9" requestIdentifier="Delete avatar for user 1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="requests | Get avatar for user 1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/requests.http" index="7" requestIdentifier="Get avatar for user 1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="requests | Get user id 2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/requests.http" index="5" requestIdentifier="Get user id 2" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="requests | Post avatar2.png for user 1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/requests.http" index="6" requestIdentifier="Post avatar2.png for user 1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="requests | Update avatar for user 1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/requests.http" index="8" requestIdentifier="Update avatar for user 1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.requests | Get avatar for user 1" />
+        <item itemvalue="HTTP Request.requests | Delete avatar for user 1" />
+        <item itemvalue="HTTP Request.requests | Update avatar for user 1" />
+        <item itemvalue="HTTP Request.requests | Post avatar2.png for user 1" />
+        <item itemvalue="HTTP Request.requests | Get user id 2" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dcc08b68-4fb3-41b1-96f8-3c1044b987d2" name="Changes" comment="" />
+      <created>1665398441900</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665398441900</updated>
+      <workItem from="1665398443111" duration="9625000" />
+      <workItem from="1665415353711" duration="1047000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
