@@ -2,11 +2,15 @@ package com.kask.game.service;
 
 import com.kask.game.entity.Game;
 import com.kask.game.repository.GameRepository;
+import lombok.NoArgsConstructor;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.util.List;
 import java.util.Optional;
 
+@ApplicationScoped
+@NoArgsConstructor
 public class GameService {
 
     private GameRepository gameRepository;
@@ -28,7 +32,7 @@ public class GameService {
         gameRepository.create(game);
     }
 
-    public void deleteGame(Game game) {
-        gameRepository.delete(game);
+    public void deleteGame(String gameName) {
+        gameRepository.delete(gameRepository.get(gameName).orElseThrow());
     }
 }

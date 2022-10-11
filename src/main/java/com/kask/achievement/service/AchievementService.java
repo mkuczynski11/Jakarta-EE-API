@@ -20,7 +20,7 @@ public class AchievementService {
 
     public void createAchievement(Achievement achievement) {achievementRepository.create(achievement);}
 
-    public Optional<Achievement> getAchievement(Achievement achievement) {return achievementRepository.get(achievement.getName());}
+    public Optional<Achievement> getAchievement(String achievementName) {return achievementRepository.get(achievementName);}
 
     public List<Achievement> getAllAchievements() {return achievementRepository.getAll();}
 
@@ -28,4 +28,5 @@ public class AchievementService {
 
     public void deleteAchievement(Achievement achievement) {achievementRepository.delete(achievement);}
 
+    public List<Achievement> getAchievementsByGame(String gameName) {return achievementRepository.getByGame(gameName);}
 }

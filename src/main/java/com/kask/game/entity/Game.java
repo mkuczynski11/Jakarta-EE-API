@@ -9,6 +9,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Builder
 @EqualsAndHashCode
 public class Game implements Serializable {
     private String name;

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/template/main.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="gameName" value="#{achievementCreate.gameName}" required="true"/>
+        <f:viewAction action="#{achievementCreate.init()}"/>
+    </f:metadata>
+
+    <ui:define name="content">
+        <h:panelGroup layout="block">
+            <article class="text--justified">
+                <header><h2>Create achievement</h2></header>
+                <h:form class="achievement_form">
+                    <p>
+                        <h:outputLabel for="name" value="Name:"/>
+                        <h:inputText class="ui-control ui-input" id="name" value="#{achievementCreate.achievementCreateModel.name}"/>
+                    </p>
+                    <p>
+                        <h:outputLabel for="ownedPercentage" value="Owned percentage:"/>
+                        <h:inputText class="ui-control ui-input" id="ownedPercentage" value="#{achievementCreate.achievementCreateModel.ownedPercentage}"/>
+                    </p>
+                    <p>
+                        <h:outputLabel for="reward" value="Reward:"/>
+                        <h:inputText class="ui-control ui-input" id="reward" value="#{achievementCreate.achievementCreateModel.reward}"/>
+                    </p>
+                    <p>
+                        <h:outputLabel for="game" value="Game:"/>
+                        <h:selectOneRadio id="game" value="#{achievementCreate.achievementCreateModel.gameModel}" required="true"
+                                          layout="pageDirection">
+                            <f:selectItems var="game" value="#{achievementCreate.gameModelList}" itemValue="#{game}"
+                                           itemLabel="#{game.name}" itemLabelEscaped="false"/>
+                        </h:selectOneRadio>
+                    </p>
+                    <h:commandButton class="ui-control ui-button" value="Create" action="#{achievementCreate.createAchievement()}"/>
+                </h:form>
+            </article>
+        </h:panelGroup>
+    </ui:define>
+
+</ui:composition>

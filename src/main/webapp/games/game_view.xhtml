@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/template/main.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="gameName" value="#{gameView.gameName}" required="true"/>
+        <f:viewAction action="#{gameView.init()}"/>
+    </f:metadata>
+
+    <ui:define name="content">
+        <h:panelGroup layout="block">
+            <article class="text--justified">
+                <header><h2><h:outputText value="#{gameView.gameModel.name}"/></h2></header>
+                <p>
+                    Name: <h:outputText value="#{gameView.gameModel.name}"/>
+                </p>
+                <p>
+                    Developer: <h:outputText value="#{gameView.gameModel.developer}"/>
+                </p>
+                <p>
+                    Price: <h:outputText value="#{gameView.gameModel.price}"/>
+                </p>
+                <h:button styleClass="ui-button ui-control" outcome="/achievements/achievement_create.xhtml" value="Create new Achievement">
+                    <f:param name="gameName" value="#{gameView.gameName}"/>
+                </h:button>
+                <br/>
+                <h3>Achievements from game <h:outputText value="#{gameView.gameModel.name}"/>:</h3>
+                <h:dataTable value="#{gameView.achievementsModel.achievements}" var="achievement" styleClass="data-table">
+                    <h:column>
+                        <f:facet name="header">name</f:facet>
+                        <h:outputText value="#{achievement.name}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">details</f:facet>
+                        <h:link outcome="/achievements/achievement_view.xhtml" value="view">
+                            <f:param name="achievementName" value="#{achievement.name}"/>
+                        </h:link>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">edit</f:facet>
+                        <h:link outcome="/achievements/achievement_edit.xhtml" value="edit">
+                            <f:param name="achievementName" value="#{achievement.name}"/>
+                        </h:link>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">delete</f:facet>
+                        <h:form>
+                            <h:commandButton styleClass="ui-button ui-control" value="delete"
+                                             action="#{gameView.deleteAchievement(achievement)}"/>
+                        </h:form>
+                    </h:column>
+                </h:dataTable>
+            </article>
+        </h:panelGroup>
+    </ui:define>
+
+</ui:composition>

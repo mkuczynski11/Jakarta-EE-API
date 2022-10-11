@@ -183,7 +183,7 @@ public class DataStore {
         log.info("Updating achievement with name: " + achievement.getName());
         getAchievement(achievement.getName()).ifPresentOrElse(
                 original -> {
-                    achievements.remove(achievement);
+                    achievements.remove(original);
                     achievements.add(achievement);
                 },
                 () -> {

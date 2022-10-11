@@ -32,4 +32,6 @@ public class AchievementRepository implements Repository<Achievement, String> {
     @Override
     public void update(Achievement entity) {dataStore.updateAchievement(entity);}
 
+    public List<Achievement> getByGame(String gameName) { return dataStore.getAchievementByGame(gameName);}
+
 }

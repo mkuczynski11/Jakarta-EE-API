@@ -10,6 +10,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Builder
 @EqualsAndHashCode
 public class Achievement implements Serializable {
     private String name;
