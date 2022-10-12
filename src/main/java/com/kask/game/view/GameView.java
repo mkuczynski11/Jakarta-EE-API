@@ -57,8 +57,8 @@ public class GameView implements Serializable {
     }
 
     public String deleteAchievement(AchievementsModel.Achievement achievement) {
-        log.info("Deleting achievement with name: " + achievement.getName());
-        achievementService.deleteAchievement(achievementService.getAchievement(achievement.getName()).orElseThrow());
+        log.info("Deleting achievement with id: " + achievement.getId());
+        achievementService.deleteAchievement(achievementService.getAchievement(achievement.getId()).orElseThrow());
         String viewId = FacesContext.getCurrentInstance().getViewRoot().getViewId();
         return viewId + "?faces-redirect=true&includeViewParams=true";
     }

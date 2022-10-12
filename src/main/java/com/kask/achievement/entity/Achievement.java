@@ -13,8 +13,9 @@ import java.io.Serializable;
 @Builder
 @EqualsAndHashCode
 public class Achievement implements Serializable {
+    private int id;
     private String name;
-    private float ownedPercentage;
+    private double ownedPercentage;
     private int reward;
     private Game game;
 

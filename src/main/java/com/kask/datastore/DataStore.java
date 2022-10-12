@@ -143,10 +143,10 @@ public class DataStore {
                 });
     }
 
-    public synchronized Optional<Achievement> getAchievement(String achievementName){
-        log.info("Retrieving achievement with name: " + achievementName);
+    public synchronized Optional<Achievement> getAchievement(int achievementId){
+        log.info("Retrieving achievement with id: " + achievementId);
         return achievements.stream()
-                .filter(achievement -> achievement.getName().equals(achievementName))
+                .filter(achievement -> achievement.getId() == achievementId)
                 .findFirst()
                 .map(CloningUtility::clone);
     }
@@ -158,21 +158,21 @@ public class DataStore {
                 .collect(Collectors.toList());
     }
 
-    public synchronized void deleteAchievement(String achievementName){
-        log.info("Deleting achievement with name: " + achievementName);
-        Optional<Achievement> achievement = getAchievement(achievementName);
+    public synchronized void deleteAchievement(int achievementId){
+        log.info("Deleting achievement with id: " + achievementId);
+        Optional<Achievement> achievement = getAchievement(achievementId);
         if (achievement.isPresent()) {
             achievements.remove(achievement.get());
         } else {
-            throw new IllegalArgumentException("Achievement with name: " + achievement.get().getName() + " doesn't exist");
+            throw new IllegalArgumentException("Achievement with id: " + achievement.get().getId() + " doesn't exist");
         }
     }
 
     public synchronized void createAchievement(Achievement achievement) throws IllegalArgumentException {
-        log.info("Creating achievement with name: " + achievement.getName());
-        getAchievement(achievement.getName()).ifPresentOrElse(
+        log.info("Creating achievement with id: " + achievement.getId());
+        getAchievement(achievement.getId()).ifPresentOrElse(
                 original -> {
-                    throw new IllegalArgumentException("Achievement with name" + achievement.getName() + " already exits");
+                    throw new IllegalArgumentException("Achievement with id" + achievement.getId() + " already exits");
                 },
                 () -> achievements.add(CloningUtility.clone(achievement))
         );
@@ -180,14 +180,14 @@ public class DataStore {
     }
 
     public synchronized void updateAchievement(Achievement achievement) throws IllegalArgumentException{
-        log.info("Updating achievement with name: " + achievement.getName());
-        getAchievement(achievement.getName()).ifPresentOrElse(
+        log.info("Updating achievement with id: " + achievement.getId());
+        getAchievement(achievement.getId()).ifPresentOrElse(
                 original -> {
                     achievements.remove(original);
                     achievements.add(achievement);
                 },
                 () -> {
-                    throw new IllegalArgumentException("Achievement with name: " + achievement.getName() + " does not exists");
+                    throw new IllegalArgumentException("Achievement with id: " + achievement.getId() + " does not exists");
                 });
     }
 

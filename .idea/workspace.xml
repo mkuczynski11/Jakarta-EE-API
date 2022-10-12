@@ -4,40 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dcc08b68-4fb3-41b1-96f8-3c1044b987d2" name="Changes" comment="Lab 1">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/model/AchievementCreateModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/model/AchievementModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/model/AchievementsModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/view/AchievementCreate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/view/AchievementEdit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/view/AchievementView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/model/GameModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/model/GamesModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/model/converter/GameModelConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/view/GameList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/view/GameView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/view/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/beans.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/template/main.xhtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/about/about.xhtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/achievements/achievement_create.xhtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/achievements/achievement_edit.xhtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/achievements/achievement_view.xhtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/games/game_view.xhtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/games/games_list.xhtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/default/css/styles.css" afterDir="false" />
+    <list default="true" id="dcc08b68-4fb3-41b1-96f8-3c1044b987d2" name="Changes" comment="Lab 2">
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-10-12T174340.200.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-10-12T174348.200.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RESTrequests.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/controller/AchievementController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/dto/CreateAchievementRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/dto/GetAchievementResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/dto/GetAchievementsResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/dto/UpdateAchievementRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/controller/Config.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/controller/AchievementGameController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/controller/GameController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/dto/CreateGameRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/dto/GetGameResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/dto/GetGamesResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/dto/UpdateGameRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/avatars/avatar1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/avatars/avatar2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/achievement/entity/Achievement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/entity/Achievement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/achievement/model/AchievementCreateModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/model/AchievementCreateModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/achievement/model/AchievementModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/model/AchievementModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/achievement/model/AchievementsModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/model/AchievementsModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/achievement/repository/AchievementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/repository/AchievementRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/achievement/service/AchievementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/service/AchievementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/achievement/view/AchievementCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/view/AchievementCreate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/achievement/view/AchievementEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/view/AchievementEdit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/achievement/view/AchievementView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/view/AchievementView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/configuration/InitializedData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/configuration/InitializedData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/datastore/DataStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/datastore/DataStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/game/entity/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/entity/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/game/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/service/GameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/liberty/config/server.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/liberty/config/server.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/game/view/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/view/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/user/dto/CreateUserRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/user/dto/GetUserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/user/dto/GetUserResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/avatars/avatar1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/avatars/avatar2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/achievements/achievement_create.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/achievements/achievement_create.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/achievements/achievement_edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/achievements/achievement_edit.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/achievements/achievement_view.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/achievements/achievement_view.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/games/game_view.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/games/game_view.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,10 +53,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="HTTP Request" />
         <option value="cdi.beans_2_0" />
         <option value="CSS File" />
         <option value="Class" />
+        <option value="HTTP Request" />
       </list>
     </option>
   </component>
@@ -73,7 +78,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/mkuczynski11/Desktop/kawaToSend2",
+    "last_opened_file_path": "C:/Users/mkuczynski11/Desktop/kawaToSend3",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -97,36 +102,36 @@
       <recent name="C:\Users\mkuczynski11\Desktop\studia\7_sem\lab\JakartaEE\src\main\webapp\about" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mkuczynski11\Desktop\studia\7_sem\lab\JakartaEE\src\main\resources\avatars" />
       <recent name="C:\Users\mkuczynski11\Desktop\studia\7_sem\lab\JakartaEE\src\main\webapp\WEB-INF\template" />
       <recent name="C:\Users\mkuczynski11\Desktop\studia\7_sem\lab\JakartaEE\src\main\webapp" />
       <recent name="C:\Users\mkuczynski11\Desktop\studia\7_sem\lab\JakartaEE\src\main\webapp\resources\default\css" />
-      <recent name="C:\Users\mkuczynski11\Desktop\studia\7_sem\lab\JakartaEE\src\main\resources\avatars" />
       <recent name="C:\Users\mkuczynski11\Desktop\studia\7_sem\lab\JakartaEE\src\main\liberty\config" />
     </key>
   </component>
-  <component name="RunManager" selected="HTTP Request.requests | Get avatar for user 1">
-    <configuration name="requests | Delete avatar for user 1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/requests.http" index="9" requestIdentifier="Delete avatar for user 1" runType="Run single request">
+  <component name="RunManager" selected="HTTP Request.RESTrequests | Get edited achievement">
+    <configuration name="RESTrequests | Create achievement in &quot;Super mario&quot; game" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/RESTrequests.http" index="11" requestIdentifier="Create achievement in &quot;Super mario&quot; game" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="requests | Get avatar for user 1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/requests.http" index="7" requestIdentifier="Get avatar for user 1" runType="Run single request">
+    <configuration name="RESTrequests | Edit new achievement" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/RESTrequests.http" index="13" requestIdentifier="Edit new achievement" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="requests | Get user id 2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/requests.http" index="5" requestIdentifier="Get user id 2" runType="Run single request">
+    <configuration name="RESTrequests | Get achievement with id 4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/RESTrequests.http" index="9" requestIdentifier="Get achievement with id 4" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="requests | Post avatar2.png for user 1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/requests.http" index="6" requestIdentifier="Post avatar2.png for user 1" runType="Run single request">
+    <configuration name="RESTrequests | Get edited achievement" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/RESTrequests.http" index="14" requestIdentifier="Get edited achievement" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="requests | Update avatar for user 1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/requests.http" index="8" requestIdentifier="Update avatar for user 1" runType="Run single request">
+    <configuration name="RESTrequests | Get new achievement" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/RESTrequests.http" index="12" requestIdentifier="Get new achievement" runType="Run single request">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.requests | Get avatar for user 1" />
-        <item itemvalue="HTTP Request.requests | Delete avatar for user 1" />
-        <item itemvalue="HTTP Request.requests | Update avatar for user 1" />
-        <item itemvalue="HTTP Request.requests | Post avatar2.png for user 1" />
-        <item itemvalue="HTTP Request.requests | Get user id 2" />
+        <item itemvalue="HTTP Request.RESTrequests | Get edited achievement" />
+        <item itemvalue="HTTP Request.RESTrequests | Edit new achievement" />
+        <item itemvalue="HTTP Request.RESTrequests | Get new achievement" />
+        <item itemvalue="HTTP Request.RESTrequests | Create achievement in &quot;Super mario&quot; game" />
+        <item itemvalue="HTTP Request.RESTrequests | Get achievement with id 4" />
       </list>
     </recent_temporary>
   </component>
@@ -140,7 +145,9 @@
       <updated>1665398441900</updated>
       <workItem from="1665398443111" duration="9625000" />
       <workItem from="1665415353711" duration="1329000" />
-      <workItem from="1665479189173" duration="11525000" />
+      <workItem from="1665479189173" duration="11581000" />
+      <workItem from="1665553915270" duration="1534000" />
+      <workItem from="1665580419248" duration="9744000" />
     </task>
     <task id="LOCAL-00001" summary="Lab 1">
       <created>1665416540006</created>
@@ -149,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665416540006</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Lab 2">
+      <created>1665490932930</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1665490932931</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,6 +182,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Lab 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lab 1" />
+    <MESSAGE value="Lab 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lab 2" />
   </component>
 </project>

@@ -1,0 +1,78 @@
+### Get all games
+
+GET http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/games
+
+### Get game with name "Starcraft 2"
+
+GET http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/games/Starcraft 2
+
+### Get nonexisting game
+
+GET http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/games/nonexisting
+
+### Delete nonexisting game
+
+DELETE http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/games/nonexisting
+
+### Create new Game with name "Super mario"
+
+POST http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/games
+Content-Type: application/json
+
+{
+  "name": "Super mario",
+  "developer": "Nintendo",
+  "price": 100
+}
+
+### Get Game with name "Super mario"
+
+GET http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/games/Super mario
+
+### Delete existing game with name "Starcraft 2"
+
+DELETE http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/games/Starcraft 2
+
+
+### Get all achievements
+
+GET http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/achievements
+
+### Get achievement with id 4
+
+GET  http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/achievements/4
+
+### Delete achievement with id 4
+
+DELETE http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/achievements/4
+
+### Create achievement in "Super mario" game
+
+POST http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/games/Super mario/achievements
+Content-Type: application/json
+
+{
+  "id": 10,
+  "name": "Win game",
+  "ownedPercentage": 0.6,
+  "reward": 240
+}
+
+### Get new achievement
+
+GET http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/achievements/10
+
+### Edit new achievement
+
+PUT http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/games/Super mario/achievements/10
+Content-Type: application/json
+
+{
+  "name": "newName",
+  "ownedPercentage": 0.6,
+  "reward": 10222
+}
+
+### Get edited achievement
+
+GET http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/achievements/10

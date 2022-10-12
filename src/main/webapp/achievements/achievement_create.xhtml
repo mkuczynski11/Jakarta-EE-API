@@ -16,6 +16,10 @@
                 <header><h2>Create achievement</h2></header>
                 <h:form class="achievement_form">
                     <p>
+                        <h:outputLabel for="id" value="ID:"/>
+                        <h:inputText class="ui-control ui-input" id="id" value="#{achievementCreate.achievementCreateModel.id}"/>
+                    </p>
+                    <p>
                         <h:outputLabel for="name" value="Name:"/>
                         <h:inputText class="ui-control ui-input" id="name" value="#{achievementCreate.achievementCreateModel.name}"/>
                     </p>

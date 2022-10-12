@@ -24,6 +24,7 @@ public class AchievementsModel implements Serializable {
     @ToString
     @EqualsAndHashCode
     public static class Achievement {
+        private int id;
         private String name;
     }
 
@@ -35,6 +36,7 @@ public class AchievementsModel implements Serializable {
             AchievementsModel.AchievementsModelBuilder builder = AchievementsModel.builder();
             achievements.stream()
                     .map(achievement -> Achievement.builder()
+                            .id(achievement.getId())
                             .name(achievement.getName())
                             .build())
                     .forEach(builder::achievement);

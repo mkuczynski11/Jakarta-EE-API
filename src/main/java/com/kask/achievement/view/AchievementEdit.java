@@ -41,7 +41,7 @@ public class AchievementEdit implements Serializable {
 
     @Getter
     @Setter
-    private String achievementName;
+    private Integer achievementId;
 
     @Inject
     public AchievementEdit(AchievementService achievementService, GameService gameService){
@@ -50,13 +50,14 @@ public class AchievementEdit implements Serializable {
     }
 
     public void init() throws IOException {
-        Optional<Achievement> achievement = achievementService.getAchievement(achievementName);
+        Optional<Achievement> achievement = achievementService.getAchievement(achievementId);
         if (achievement.isPresent()) {
             gameModelList = gameService.getAllGames().stream()
                     .map(GameModel.entityToModelMapper())
                     .collect(Collectors.toList());
 
             achievementCreateModel = AchievementCreateModel.builder()
+                    .id(achievement.get().getId())
                     .name(achievement.get().getName())
                     .ownedPercentage(achievement.get().getOwnedPercentage())
                     .reward(achievement.get().getReward())
@@ -64,7 +65,7 @@ public class AchievementEdit implements Serializable {
                     .build();
         } else {
             FacesContext.getCurrentInstance().getExternalContext()
-                    .responseSendError(HttpServletResponse.SC_NOT_FOUND, "Achievement with name: " + achievementName + "not found");
+                    .responseSendError(HttpServletResponse.SC_NOT_FOUND, "Achievement with id: " + achievementId + "not found");
         }
     }
 

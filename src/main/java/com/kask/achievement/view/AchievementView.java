@@ -24,7 +24,7 @@ public class AchievementView {
 
     @Getter
     @Setter
-    private String achievementName;
+    private Integer achievementId;
 
     @Getter
     @Setter
@@ -34,7 +34,7 @@ public class AchievementView {
     public AchievementView(AchievementService achievementService) {this.achievementService = achievementService;}
 
     public void init() throws IOException {
-        Optional<Achievement> achievement = achievementService.getAchievement(achievementName);
+        Optional<Achievement> achievement = achievementService.getAchievement(achievementId);
         if (achievement.isPresent()) {
             this.achievementModel = AchievementModel.entityToModelMapper().apply(achievement.get());
         } else {

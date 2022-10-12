@@ -36,13 +36,13 @@
                     <h:column>
                         <f:facet name="header">details</f:facet>
                         <h:link outcome="/achievements/achievement_view.xhtml" value="view">
-                            <f:param name="achievementName" value="#{achievement.name}"/>
+                            <f:param name="achievementId" value="#{achievement.id}"/>
                         </h:link>
                     </h:column>
                     <h:column>
                         <f:facet name="header">edit</f:facet>
                         <h:link outcome="/achievements/achievement_edit.xhtml" value="edit">
-                            <f:param name="achievementName" value="#{achievement.name}"/>
+                            <f:param name="achievementId" value="#{achievement.id}"/>
                         </h:link>
                     </h:column>
                     <h:column>

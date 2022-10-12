@@ -6,7 +6,7 @@
                 template="/WEB-INF/template/main.xhtml">
 
     <f:metadata>
-        <f:viewParam name="achievementName" value="#{achievementView.achievementName}" required="true"/>
+        <f:viewParam name="achievementId" value="#{achievementView.achievementId}" required="true"/>
         <f:viewAction action="#{achievementView.init()}"/>
     </f:metadata>
 
@@ -14,6 +14,9 @@
         <h:panelGroup layout="block">
             <article class="text--justified">
                 <header><h2><h:outputText value="#{achievementView.achievementModel.name}"/></h2></header>
+                <p>
+                    Id: <h:outputText value="#{achievementView.achievementModel.id}"/>
+                </p>
                 <p>
                     Name: <h:outputText value="#{achievementView.achievementModel.name}"/>
                 </p>

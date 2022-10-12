@@ -6,18 +6,22 @@
                 template="/WEB-INF/template/main.xhtml">
 
     <f:metadata>
-        <f:viewParam name="achievementName" value="#{achievementEdit.achievementName}" required="true"/>
+        <f:viewParam name="achievementId" value="#{achievementEdit.achievementId}" required="true"/>
         <f:viewAction action="#{achievementEdit.init()}"/>
     </f:metadata>
 
     <ui:define name="content">
         <h:panelGroup layout="block">
             <article class="text--justified">
-                <header><h2>Create achievement</h2></header>
+                <header><h2>Edit achievement</h2></header>
                 <h:form class="achievement_form">
                     <p>
+                        <h:outputLabel for="id" value="ID:"/>
+                        <h:inputText class="ui-control ui-input" id="id" value="#{achievementEdit.achievementCreateModel.id}" disabled="true"/>
+                    </p>
+                    <p>
                         <h:outputLabel for="name" value="Name:"/>
-                        <h:inputText class="ui-control ui-input" id="name" value="#{achievementEdit.achievementCreateModel.name}" disabled="true"/>
+                        <h:inputText class="ui-control ui-input" id="name" value="#{achievementEdit.achievementCreateModel.name}"/>
                     </p>
                     <p>
                         <h:outputLabel for="ownedPercentage" value="Owned percentage:"/>

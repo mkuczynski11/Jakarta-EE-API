@@ -55,8 +55,9 @@ public class AchievementCreate implements Serializable {
                 .map(GameModel.entityToModelMapper())
                 .collect(Collectors.toList());
         achievementCreateModel = AchievementCreateModel.builder()
+                .id(achievementService.getAllAchievements().size()+1)
                 .name(UUID.randomUUID().toString().split("-")[0])
-                .ownedPercentage(Float.parseFloat("0.6"))
+                .ownedPercentage(0.6)
                 .reward(100)
                 .gameModel(gameModelList.stream()
                         .filter(x -> gameName.equals(x.getName()))
@@ -65,10 +66,10 @@ public class AchievementCreate implements Serializable {
     }
 
     public String createAchievement() throws IOException {
-        Optional<Achievement> achievement = achievementService.getAchievement(achievementCreateModel.getName());
+        Optional<Achievement> achievement = achievementService.getAchievement(achievementCreateModel.getId());
         if (achievement.isPresent()) {
             FacesContext.getCurrentInstance().getExternalContext()
-                    .responseSendError(HttpServletResponse.SC_NOT_FOUND, "Achievement with name: " + achievement.get().getName() + " already exists");
+                    .responseSendError(HttpServletResponse.SC_NOT_FOUND, "Achievement with id: " + achievement.get().getId() + " already exists");
         } else {
             achievementService.createAchievement(AchievementCreateModel.modelToEntityMapper(
                     game -> gameService.getGame(game).orElseThrow()).apply(achievementCreateModel));
