@@ -3,7 +3,8 @@ package com.kask.user.servlet;
 import com.kask.servlet.HttpHeaders;
 import com.kask.servlet.MimeTypes;
 import com.kask.servlet.ServletUtility;
-import com.kask.user.service.UserAvatarService;
+import com.kask.user.entity.User;
+import com.kask.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.inject.Inject;
@@ -24,11 +25,11 @@ import java.util.Optional;
 @MultipartConfig(maxFileSize = 800 * 1024)
 public class UserAvatarServlet extends HttpServlet {
 
-    private UserAvatarService userAvatarService;
+    private UserService userService;
 
     @Inject
-    public UserAvatarServlet(UserAvatarService userAvatarService) {
-        this.userAvatarService = userAvatarService;
+    public UserAvatarServlet(UserService userService) {
+        this.userService = userService;
     }
 
     public static class Paths {
@@ -103,12 +104,12 @@ public class UserAvatarServlet extends HttpServlet {
 
     private void getAvatar(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Integer id = Integer.parseInt(ServletUtility.parseRequestPath(request).replaceAll("/", ""));
-        Optional<byte[]> avatar = userAvatarService.getAvatar(id);
+        Optional<User> user = userService.getUser(id);
 
-        if (avatar.isPresent()) {
+        if (user.isPresent() && user.get().getAvatar() != null) {
             response.addHeader(HttpHeaders.CONTENT_TYPE, MimeTypes.IMAGE_PNG);
-            response.setContentLength(avatar.get().length);
-            response.getOutputStream().write(avatar.get());
+            response.setContentLength(user.get().getAvatar().length);
+            response.getOutputStream().write(user.get().getAvatar());
         } else {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
@@ -117,8 +118,9 @@ public class UserAvatarServlet extends HttpServlet {
     private void postAvatar(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         Integer id = Integer.parseInt(ServletUtility.parseRequestPath(request).replaceAll("/", ""));
         Part avatar = request.getPart(Parameters.AVATAR);
-        if (avatar != null) {
-            userAvatarService.createAvatar(avatar.getInputStream(), avatar.getSubmittedFileName(), id);
+        Optional<User> user = userService.getUser(id);
+        if (avatar != null && user.isPresent() && user.get().getAvatar() == null) {
+            userService.updateAvatar(user.get(), avatar.getInputStream());
             response.setStatus(HttpServletResponse.SC_CREATED);
         } else {
             response.setStatus(HttpServletResponse.SC_NO_CONTENT);
@@ -127,7 +129,9 @@ public class UserAvatarServlet extends HttpServlet {
 
     private void deleteAvatar(HttpServletRequest request, HttpServletResponse response) {
         Integer id = Integer.parseInt(ServletUtility.parseRequestPath(request).replaceAll("/", ""));
-        if (userAvatarService.deleteAvatar(id)) {
+        Optional<User> user = userService.getUser(id);
+        if (user.isPresent() && user.get().getAvatar() != null) {
+            userService.deleteAvatar(user.get());
             response.setStatus(HttpServletResponse.SC_OK);
         } else {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
@@ -137,13 +141,10 @@ public class UserAvatarServlet extends HttpServlet {
     private void updateAvatar(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         Integer id = Integer.parseInt(ServletUtility.parseRequestPath(request).replaceAll("/", ""));
         Part avatar = request.getPart(Parameters.AVATAR);
-        if (avatar != null) {
-            try {
-                userAvatarService.updateAvatar(avatar.getInputStream(), avatar.getSubmittedFileName(), id);
-                response.setStatus(HttpServletResponse.SC_CREATED);
-            } catch (IllegalArgumentException e) {
-                response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            }
+        Optional<User> user = userService.getUser(id);
+        if (avatar != null && user.isPresent()) {
+            userService.updateAvatar(user.get(), avatar.getInputStream());
+            response.setStatus(HttpServletResponse.SC_CREATED);
         } else {
             response.setStatus(HttpServletResponse.SC_NO_CONTENT);
         }

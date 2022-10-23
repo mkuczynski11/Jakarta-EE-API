@@ -10,6 +10,7 @@ import com.kask.user.service.UserService;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.Initialized;
+import javax.enterprise.context.control.RequestContextController;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import java.util.List;
@@ -20,12 +21,14 @@ public class InitializedData {
     private final UserService userService;
     private final GameService gameService;
     private final AchievementService achievementService;
+    private final RequestContextController requestContextController;
 
     @Inject
-    public InitializedData(UserService userService, GameService gameService, AchievementService achievementService) {
+    public InitializedData(UserService userService, GameService gameService, AchievementService achievementService, RequestContextController requestContextController) {
         this.userService = userService;
         this.gameService = gameService;
         this.achievementService = achievementService;
+        this.requestContextController = requestContextController;
     }
 
     public void contextInitialized(@Observes @Initialized(ApplicationScoped.class) Object init) {
@@ -33,6 +36,8 @@ public class InitializedData {
     }
 
     private synchronized void init(){
+        requestContextController.activate();
+
         Game game1 = Game.builder()
                 .name("Starcraft 2")
                 .developer("Activision")
@@ -161,5 +166,7 @@ public class InitializedData {
                 .build();
 
         List.of(user1, user2, user3, user4).forEach(userService::createUser);
+
+        requestContextController.deactivate();
     }
 }

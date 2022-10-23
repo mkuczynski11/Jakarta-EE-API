@@ -66,8 +66,20 @@
                     <plugin>
                         <groupId>io.openliberty.tools</groupId>
                         <artifactId>liberty-maven-plugin</artifactId>
-                        <version>3.2.3</version>
+                        <version>3.3.4</version>
+                        <configuration>
+                            <copyDependencies>
+                                <location>${project.build.directory}/liberty/wlp/usr/shared/resources/</location>
+                                <dependency>
+                                    <groupId>com.h2database</groupId>
+                                    <artifactId>h2</artifactId>
+                                    <version>1.4.200</version>
+                                </dependency>
+                            </copyDependencies>
+                        </configuration>
                     </plugin>
+
+
                 </plugins>
             </build>
         </profile>

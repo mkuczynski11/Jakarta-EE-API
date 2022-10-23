@@ -5,33 +5,52 @@ import com.kask.datastore.DataStore;
 import com.kask.repository.Repository;
 
 import javax.enterprise.context.Dependent;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-@Dependent
+@RequestScoped
 public class AchievementRepository implements Repository<Achievement, Integer> {
 
-    private DataStore dataStore;
+    private EntityManager entityManager;
 
-    @Inject
-    public AchievementRepository(DataStore dataStore) {this.dataStore = dataStore;}
-
-    @Override
-    public Optional<Achievement> get(Integer achievementId) {return dataStore.getAchievement(achievementId);}
-
-    @Override
-    public List<Achievement> getAll() {return dataStore.getAllAchievements();}
+    @PersistenceContext
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
     @Override
-    public void create(Achievement entity) {dataStore.createAchievement(entity);}
+    public Optional<Achievement> get(Integer achievementId) {
+        return Optional.ofNullable(entityManager.find(Achievement.class, achievementId));
+    }
 
     @Override
-    public void delete(Achievement entity) {dataStore.deleteAchievement(entity.getId());}
+    public List<Achievement> getAll() {
+        return entityManager.createQuery("select a from Achievement a", Achievement.class).getResultList();
+    }
 
     @Override
-    public void update(Achievement entity) {dataStore.updateAchievement(entity);}
+    public void create(Achievement entity) {
+        entityManager.persist(entity);
+    }
 
-    public List<Achievement> getByGame(String gameName) { return dataStore.getAchievementByGame(gameName);}
+    @Override
+    public void delete(Achievement entity) {
+        entityManager.remove(entityManager.find(Achievement.class, entity.getId()));
+    }
+
+    @Override
+    public void update(Achievement entity) {
+        entityManager.merge(entity);
+    }
+
+    @Override
+    public void detach(Achievement entity){
+        entityManager.detach(entity);
+    }
 
 }

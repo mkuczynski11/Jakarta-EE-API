@@ -49,7 +49,7 @@ public class GameView implements Serializable {
         Optional<Game> game = gameService.getGame(gameName);
         if (game.isPresent()) {
             this.gameModel = GameModel.entityToModelMapper().apply(game.get());
-            this.achievementsModel = AchievementsModel.entityToModelMapper().apply(achievementService.getAchievementsByGame(game.get().getName()));
+            this.achievementsModel = AchievementsModel.entityToModelMapper().apply(game.get().getAchievements());
         } else {
             FacesContext.getCurrentInstance().getExternalContext()
                     .responseSendError(HttpServletResponse.SC_NOT_FOUND, "Game not found");
