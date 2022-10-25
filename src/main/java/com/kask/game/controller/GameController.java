@@ -6,13 +6,18 @@ import com.kask.game.dto.GetGamesResponse;
 import com.kask.game.dto.UpdateGameRequest;
 import com.kask.game.entity.Game;
 import com.kask.game.service.GameService;
+import com.kask.user.entity.User;
+import com.kask.user.entity.UserRole;
 
+import javax.annotation.security.RolesAllowed;
+import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Optional;
 
+@RolesAllowed(UserRole.USER)
 @Path("/games")
 public class GameController {
 
@@ -20,7 +25,7 @@ public class GameController {
 
     public GameController(){}
 
-    @Inject
+    @EJB
     public void setGameService(GameService gameService){
         this.gameService = gameService;
     }
@@ -50,6 +55,7 @@ public class GameController {
     }
 
     @POST
+    @RolesAllowed(UserRole.ADMIN)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response postGame(CreateGameRequest request){
         Game game = CreateGameRequest.dtoToEntityMapper().apply(request);
@@ -63,6 +69,7 @@ public class GameController {
 
     @PUT
     @Path("{gameName}")
+    @RolesAllowed(UserRole.ADMIN)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response updateGame(@PathParam("gameName") String gameName ,UpdateGameRequest request){
         Optional<Game> game = gameService.getGame(gameName);
@@ -77,6 +84,7 @@ public class GameController {
 
     @DELETE
     @Path("{gameName}")
+    @RolesAllowed(UserRole.ADMIN)
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteGame(@PathParam("gameName") String gameName){
         Optional<Game> game = gameService.getGame(gameName);

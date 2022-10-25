@@ -4,37 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dcc08b68-4fb3-41b1-96f8-3c1044b987d2" name="Changes" comment="Lab 3">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/JakartaEE_war.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/JakartaEE_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-10-19T093055.200.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-10-19T093113.200.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-10-23T133459.200.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-10-23T133506.200.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-10-23T134247.200.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2022-10-10T173624.200.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2022-10-10T173653.200.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2022-10-12T174340.200.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2022-10-12T174348.200.png" beforeDir="false" />
+    <list default="true" id="dcc08b68-4fb3-41b1-96f8-3c1044b987d2" name="Changes" comment="Lab 4">
+      <change afterPath="$PROJECT_DIR$/AUTHrequests.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/configuration/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/user/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/user/dto/CreateUserRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/user/dto/UpdateUserPasswordRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/user/dto/UpdateUserRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/user/dto/UpdateUserRolesRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kask/user/entity/UserRole.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/achievement/controller/AchievementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/controller/AchievementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/achievement/dto/CreateAchievementRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/controller/dto/CreateAchievementRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/achievement/dto/GetAchievementResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/controller/dto/GetAchievementResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/achievement/dto/GetAchievementsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/controller/dto/GetAchievementsResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/achievement/dto/UpdateAchievementRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/controller/dto/UpdateAchievementRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/achievement/entity/Achievement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/entity/Achievement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/achievement/repository/AchievementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/repository/AchievementRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/achievement/service/AchievementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/service/AchievementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/achievement/view/AchievementCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/view/AchievementCreate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/achievement/view/AchievementEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/view/AchievementEdit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/achievement/view/AchievementView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/achievement/view/AchievementView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/configuration/InitializedData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/configuration/InitializedData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/datastore/DataStore.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/digest/Sha256Utility.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/game/controller/AchievementGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/controller/AchievementGameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/game/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/game/entity/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/entity/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/game/repository/GameRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/repository/GameRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/game/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/service/GameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/game/view/GameList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/view/GameList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/game/view/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/game/view/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/repository/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/repository/Repository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/user/repository/UserAvatarRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/user/dto/GetUserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/user/dto/GetUserResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/user/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/user/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/user/service/UserAvatarService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/user/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/user/servlet/UserAvatarServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/user/servlet/UserAvatarServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kask/user/servlet/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kask/user/servlet/UserServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/liberty/config/server.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/liberty/config/server.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +54,8 @@
         <option value="Interface" />
         <option value="cdi.beans_2_0" />
         <option value="CSS File" />
-        <option value="Class" />
         <option value="HTTP Request" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -57,6 +64,13 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="enabledProfiles">
+      <list>
+        <option value="liberty" />
+      </list>
+    </option>
   </component>
   <component name="ProjectId" id="2FwLw3t1SNnaAVsnNHKry7EnGmf" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -77,7 +91,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "MavenSettings"
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.editor"
   },
   "keyToStringList": {
     "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
@@ -142,7 +159,9 @@
       <workItem from="1665580419248" duration="9783000" />
       <workItem from="1666161700687" duration="1252000" />
       <workItem from="1666164956300" duration="125000" />
-      <workItem from="1666519239473" duration="6544000" />
+      <workItem from="1666519239473" duration="6652000" />
+      <workItem from="1666539792947" duration="13229000" />
+      <workItem from="1666626624963" duration="1181000" />
     </task>
     <task id="LOCAL-00001" summary="Lab 1">
       <created>1665416540006</created>
@@ -165,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665591130137</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Lab 4">
+      <created>1666525805445</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666525805445</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +212,7 @@
     <MESSAGE value="Lab 1" />
     <MESSAGE value="Lab 2" />
     <MESSAGE value="Lab 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lab 3" />
+    <MESSAGE value="Lab 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lab 4" />
   </component>
 </project>

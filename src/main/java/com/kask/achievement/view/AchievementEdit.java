@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -23,8 +24,8 @@ import java.util.stream.Collectors;
 
 @SessionScoped
 @Named
-@NoArgsConstructor
 @Slf4j
+@NoArgsConstructor
 public class AchievementEdit implements Serializable {
 
     private AchievementService achievementService;
@@ -43,9 +44,12 @@ public class AchievementEdit implements Serializable {
     @Setter
     private Integer achievementId;
 
-    @Inject
-    public AchievementEdit(AchievementService achievementService, GameService gameService){
+    @EJB
+    public void setAchievementService(AchievementService achievementService){
         this.achievementService = achievementService;
+    }
+    @EJB
+    public void setGameService(GameService gameService){
         this.gameService = gameService;
     }
 

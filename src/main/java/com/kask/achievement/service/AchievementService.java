@@ -2,66 +2,102 @@ package com.kask.achievement.service;
 
 import com.kask.achievement.entity.Achievement;
 import com.kask.achievement.repository.AchievementRepository;
-import com.kask.game.repository.GameRepository;
+import com.kask.user.entity.User;
+import com.kask.user.entity.UserRole;
 import com.kask.user.repository.UserRepository;
 import lombok.NoArgsConstructor;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.transaction.Transactional;
+import javax.security.enterprise.SecurityContext;
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.Response;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-@ApplicationScoped
+@Stateless
+@LocalBean
 @NoArgsConstructor
 public class AchievementService {
 
     private AchievementRepository achievementRepository;
-    private GameRepository gameRepository;
+    private SecurityContext securityContext;
     private UserRepository userRepository;
 
     @Inject
-    public AchievementService(AchievementRepository achievementRepository, GameRepository gameRepository, UserRepository userRepository) {
+    public AchievementService(AchievementRepository achievementRepository, SecurityContext securityContext, UserRepository userRepository) {
         this.achievementRepository = achievementRepository;
-        this.gameRepository = gameRepository;
+        this.securityContext = securityContext;
         this.userRepository = userRepository;
     }
 
-    @Transactional
     public void createAchievement(Achievement achievement) {
-        achievementRepository.create(achievement);
-        if (achievement.getGame() != null) {
-            gameRepository.get(achievement.getGame().getName()).ifPresent(game -> game.getAchievements().add(achievement));
+        if (securityContext.getCallerPrincipal() != null) {
+            Optional<User> user = userRepository.get(securityContext.getCallerPrincipal().getName());
+            if (user.isPresent()) {
+                achievement.setUser(user.get());
+                achievementRepository.create(achievement);
+                return;
+            }
         }
-        if (achievement.getUser() != null) {
-            userRepository.get(achievement.getUser().getId()).ifPresent(user -> user.getAchievementList().add(achievement));
-        }
+        throw new WebApplicationException(Response.Status.UNAUTHORIZED);
     }
 
-    public Optional<Achievement> getAchievement(int achievementId) {return achievementRepository.get(achievementId);}
+    public Optional<Achievement> getAchievement(int achievementId) {
+        if (securityContext.isCallerInRole(UserRole.ADMIN)) {
+            return achievementRepository.get(achievementId);
+        } else if (securityContext.getCallerPrincipal() != null) {
+            return achievementRepository.getByUser(securityContext.getCallerPrincipal().getName(), achievementId);
+        }
+        return Optional.empty();
+    }
 
-    public List<Achievement> getAllAchievements() {return achievementRepository.getAll();}
+    public Optional<Achievement> getAchievementByGame(int achievementId, String gameName) {
+        if (securityContext.isCallerInRole(UserRole.ADMIN)) {
+            return achievementRepository.getByGame(gameName, achievementId);
+        } else if (securityContext.getCallerPrincipal() != null) {
+            return achievementRepository.getByGameAndUser(gameName, securityContext.getCallerPrincipal().getName(), achievementId);
+        }
+        return Optional.empty();
+    }
 
-    @Transactional
+    public List<Achievement> getAllAchievements() {
+        if (securityContext.isCallerInRole(UserRole.ADMIN)) {
+            return achievementRepository.getAll();
+        } else if (securityContext.getCallerPrincipal() != null) {
+            return achievementRepository.getAllByUser(securityContext.getCallerPrincipal().getName());
+        }
+        return Collections.emptyList();
+    }
+
+    public List<Achievement> getAllByGame(String gameName) {
+        if (securityContext.isCallerInRole(UserRole.ADMIN)) {
+            return achievementRepository.getAllByGame(gameName);
+        } else if (securityContext.getCallerPrincipal() != null) {
+            return achievementRepository.getAllByGameAndUser(gameName, securityContext.getCallerPrincipal().getName());
+        }
+        return Collections.emptyList();
+    }
+
     public void updateAchievement(Achievement achievement) {
-        Achievement org = achievementRepository.get(achievement.getId()).orElseThrow();
-        achievementRepository.detach(achievement);
-        if (!org.getGame().getName().equals(achievement.getGame().getName())) {
-            org.getGame().getAchievements().removeIf(achievementToRemove -> achievementToRemove.getId() == achievement.getId());
-            gameRepository.get(achievement.getGame().getName()).ifPresent(game -> game.getAchievements().add(achievement));
+        if (securityContext.isCallerInRole(UserRole.ADMIN)) {
+            achievementRepository.update(achievement);
+        } else if (securityContext.getCallerPrincipal() != null && achievement.getUser().getUsername().equals(securityContext.getCallerPrincipal().getName())) {
+            achievementRepository.update(achievement);
+        } else {
+            throw new WebApplicationException(Response.Status.UNAUTHORIZED);
         }
-        achievementRepository.update(achievement);
     }
 
-    @Transactional
     public void deleteAchievement(Achievement achievement) {
-        Achievement a = achievementRepository.get(achievement.getId()).orElseThrow();
-        if (a.getGame() != null) {
-            a.getGame().getAchievements().remove(a);
+        if (securityContext.isCallerInRole(UserRole.ADMIN)) {
+            achievementRepository.delete(achievement);
+        } else if (securityContext.getCallerPrincipal() != null && achievement.getUser().getUsername().equals(securityContext.getCallerPrincipal().getName())) {
+            achievementRepository.delete(achievement);
+        } else {
+            throw new WebApplicationException(Response.Status.UNAUTHORIZED);
         }
-        if (a.getUser() != null){
-            a.getUser().getAchievementList().remove(a);
-        }
-        achievementRepository.delete(achievement);
     }
 }

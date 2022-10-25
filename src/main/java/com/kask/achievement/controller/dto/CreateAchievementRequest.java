@@ -1,4 +1,4 @@
-package com.kask.achievement.dto;
+package com.kask.achievement.controller.dto;
 
 import com.kask.achievement.entity.Achievement;
 import com.kask.game.entity.Game;

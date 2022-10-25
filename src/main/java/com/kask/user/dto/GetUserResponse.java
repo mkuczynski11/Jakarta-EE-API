@@ -16,11 +16,11 @@ import java.util.stream.Collectors;
 @EqualsAndHashCode
 public class GetUserResponse {
 
-    private int id;
+    private String username;
     private String name;
     private String surname;
     private String email;
-    private User.Role role;
+    private List<String> roles;
     private List<UserAchievements> userAchievements;
 
     @Getter
@@ -36,16 +36,11 @@ public class GetUserResponse {
 
     public static Function<User, GetUserResponse> entityToDtoMapper() {
         return user -> GetUserResponse.builder()
-                .id(user.getId())
+                .username(user.getUsername())
                 .name(user.getName())
                 .surname(user.getSurname())
                 .email(user.getEmail())
-                .role(user.getRole())
-                .userAchievements(user.getAchievementList().stream()
-                        .map(a -> UserAchievements.builder()
-                                .name(a.getName())
-                                .build())
-                        .collect(Collectors.toList()))
+                .roles(user.getRoles())
                 .build();
     }
 }

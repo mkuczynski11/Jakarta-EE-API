@@ -1,18 +1,15 @@
 package com.kask.game.repository;
 
-import com.kask.datastore.DataStore;
 import com.kask.game.entity.Game;
 import com.kask.repository.Repository;
 
 import javax.enterprise.context.Dependent;
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 import java.util.Optional;
 
-@RequestScoped
+@Dependent
 public class GameRepository implements Repository<Game, String> {
     private EntityManager entityManager;
     @PersistenceContext

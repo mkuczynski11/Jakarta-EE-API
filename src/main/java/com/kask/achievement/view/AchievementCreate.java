@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -44,9 +45,12 @@ public class AchievementCreate implements Serializable {
     @Setter
     private String gameName;
 
-    @Inject
-    public AchievementCreate(AchievementService achievementService, GameService gameService){
+    @EJB
+    public void setAchievementService(AchievementService achievementService) {
         this.achievementService = achievementService;
+    }
+    @EJB
+    public void setGameService(GameService gameService) {
         this.gameService = gameService;
     }
 

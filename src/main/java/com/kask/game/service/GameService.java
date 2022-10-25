@@ -4,13 +4,16 @@ import com.kask.game.entity.Game;
 import com.kask.game.repository.GameRepository;
 import lombok.NoArgsConstructor;
 
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-@ApplicationScoped
+@Stateless
+@LocalBean
 @NoArgsConstructor
 public class GameService {
 
@@ -19,7 +22,6 @@ public class GameService {
     @Inject
     public GameService(GameRepository gameRepository) {this.gameRepository = gameRepository;}
 
-    @Transactional
     public void createGame(Game game) {
         gameRepository.create(game);
     }
@@ -30,12 +32,10 @@ public class GameService {
 
     public List<Game> getAllGames() {return gameRepository.getAll();}
 
-    @Transactional
     public void updateGame(Game game) {
         gameRepository.create(game);
     }
 
-    @Transactional
     public void deleteGame(String gameName) {
         gameRepository.delete(gameRepository.get(gameName).orElseThrow());
     }

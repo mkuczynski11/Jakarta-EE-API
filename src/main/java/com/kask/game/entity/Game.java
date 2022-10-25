@@ -24,5 +24,6 @@ public class Game implements Serializable {
 
     @OneToMany(mappedBy = "game", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private List<Achievement> achievements;
 }

@@ -2,8 +2,10 @@ package com.kask.game.view;
 
 import com.kask.game.model.GamesModel;
 import com.kask.game.service.GameService;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -12,14 +14,15 @@ import java.io.Serializable;
 @RequestScoped
 @Named
 @Slf4j
+@NoArgsConstructor
 public class GameList implements Serializable {
 
-    private final GameService gameService;
+    private GameService gameService;
 
     private GamesModel games;
 
-    @Inject
-    public GameList(GameService gameService) {
+    @EJB
+    public void setGameService(GameService gameService){
         this.gameService = gameService;
     }
 

@@ -1,0 +1,107 @@
+// @no-cookie-jar
+GET http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/users
+Authorization: Basic mkuczyns pass
+#Authorization: Basic andrzej_brazda pass
+#Authorization: Basic wb123 pass
+#Authorization: Basic aaAA pass
+
+###
+
+// @no-cookie-jar
+GET http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/users/mkuczyns
+#Authorization: Basic mkuczyns pass
+#Authorization: Basic andrzej_brazda pass
+#Authorization: Basic wb123 pass
+#Authorization: Basic aaAA pass
+
+###
+
+// @no-cookie-jar
+POST http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/users
+Content-Type: application/json
+
+{
+  "username": "test",
+  "password": "pass",
+  "name": "name",
+  "surname": "surname",
+  "email": "email",
+  "role": "USER"
+}
+
+###
+
+// @no-cookie-jar
+GET http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/users/test
+Authorization: Basic mkuczyns pass
+#Authorization: Basic andrzej_brazda pass
+#Authorization: Basic wb123 pass
+#Authorization: Basic aaAA pass
+
+###
+
+// @no-cookie-jar
+PUT http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/users/test
+Content-Type: application/json
+Authorization: Basic mkuczyns pass
+#Authorization: Basic andrzej_brazda pass
+#Authorization: Basic wb123 pass
+#Authorization: Basic aaAA pass
+
+{
+  "name": "otherName",
+  "surname": "otherSurname",
+  "email": "otherEmail"
+}
+
+###
+
+// @no-cookie-jar
+PUT http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/users/test/password
+Content-Type: application/json
+Authorization: Basic mkuczyns pass
+#Authorization: Basic andrzej_brazda pass
+#Authorization: Basic wb123 pass
+#Authorization: Basic aaAA pass
+
+
+{
+  "password": "new_pass"
+}
+
+###
+
+// @no-cookie-jar
+PUT http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/users/test/roles
+Content-Type: application/json
+Authorization: Basic mkuczyns pass
+#Authorization: Basic andrzej_brazda pass
+#Authorization: Basic wb123 pass
+#Authorization: Basic aaAA pass
+
+{
+  "roles": [
+    "admin",
+    "user"
+  ]
+}
+
+###
+
+// @no-cookie-jar
+DELETE http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/users/mkuczyns
+Authorization: Basic mkuczyns pass
+#Authorization: Basic andrzej_brazda pass
+#Authorization: Basic wb123 pass
+#Authorization: Basic aaAA pass
+
+###
+
+// @no-cookie-jar
+GET http://localhost:9080/JakartaEELab-1.0-SNAPSHOT/api/avatars/mkuczyns
+Authorization: Basic mkuczyns pass
+#Authorization: Basic andrzej_brazda pass
+#Authorization: Basic wb123 pass
+#Authorization: Basic aaAA pass
+
+###

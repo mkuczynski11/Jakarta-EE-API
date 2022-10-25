@@ -4,9 +4,11 @@ import com.kask.achievement.entity.Achievement;
 import com.kask.achievement.model.AchievementModel;
 import com.kask.achievement.service.AchievementService;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -18,6 +20,7 @@ import java.util.Optional;
 @RequestScoped
 @Named
 @Slf4j
+@NoArgsConstructor
 public class AchievementView {
 
     private AchievementService achievementService;
@@ -30,8 +33,10 @@ public class AchievementView {
     @Setter
     private AchievementModel achievementModel;
 
-    @Inject
-    public AchievementView(AchievementService achievementService) {this.achievementService = achievementService;}
+    @EJB
+    public void setAchievementService(AchievementService achievementService){
+        this.achievementService = achievementService;
+    }
 
     public void init() throws IOException {
         Optional<Achievement> achievement = achievementService.getAchievement(achievementId);

@@ -6,9 +6,11 @@ import com.kask.game.entity.Game;
 import com.kask.game.model.GameModel;
 import com.kask.game.service.GameService;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -21,11 +23,12 @@ import java.util.Optional;
 @SessionScoped
 @Named
 @Slf4j
+@NoArgsConstructor
 public class GameView implements Serializable {
 
-    private final GameService gameService;
+    private GameService gameService;
 
-    private final AchievementService achievementService;
+    private AchievementService achievementService;
 
     @Getter
     @Setter
@@ -39,9 +42,12 @@ public class GameView implements Serializable {
     @Setter
     private AchievementsModel achievementsModel;
 
-    @Inject
-    public GameView(GameService gameService, AchievementService achievementService){
+    @EJB
+    public void setGameService(GameService gameService){
         this.gameService = gameService;
+    }
+    @EJB
+    public void setAchievementService(AchievementService achievementService) {
         this.achievementService = achievementService;
     }
 

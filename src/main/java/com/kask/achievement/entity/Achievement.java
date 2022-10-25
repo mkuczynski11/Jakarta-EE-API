@@ -23,12 +23,10 @@ public class Achievement implements Serializable {
     private double ownedPercentage;
     private int reward;
 
-    @ManyToOne
-    @JoinColumn(name = "game")
+    @ManyToOne(fetch = FetchType.LAZY)
     private Game game;
 
 
     @ManyToOne
-    @JoinColumn(name = "user")
     private User user;
 }

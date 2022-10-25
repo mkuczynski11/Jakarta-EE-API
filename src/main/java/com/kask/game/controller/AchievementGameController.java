@@ -1,13 +1,15 @@
 package com.kask.game.controller;
 
-import com.kask.achievement.dto.CreateAchievementRequest;
-import com.kask.achievement.dto.UpdateAchievementRequest;
+import com.kask.achievement.controller.dto.CreateAchievementRequest;
+import com.kask.achievement.controller.dto.UpdateAchievementRequest;
 import com.kask.achievement.entity.Achievement;
 import com.kask.achievement.service.AchievementService;
 import com.kask.game.entity.Game;
 import com.kask.game.service.GameService;
+import com.kask.user.entity.UserRole;
 
-import javax.inject.Inject;
+import javax.annotation.security.RolesAllowed;
+import javax.ejb.EJB;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -15,6 +17,7 @@ import java.security.InvalidParameterException;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+@RolesAllowed(UserRole.USER)
 @Path("/games/{gameName}/achievements")
 public class AchievementGameController {
 
@@ -23,12 +26,12 @@ public class AchievementGameController {
 
     public AchievementGameController(){}
 
-    @Inject
+    @EJB
     public void setGameService(GameService gameService){
         this.gameService = gameService;
     }
 
-    @Inject
+    @EJB
     public void setAchievementService(AchievementService achievementService){
         this.achievementService = achievementService;
     }

@@ -6,8 +6,10 @@ import com.kask.user.dto.GetUserResponse;
 import com.kask.user.dto.GetUsersResponse;
 import com.kask.user.entity.User;
 import com.kask.user.service.UserService;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
@@ -24,16 +26,19 @@ import java.util.Optional;
         UserServlet.Paths.USER + "/*",
         UserServlet.Paths.USERS + "/*"
 })
+@NoArgsConstructor
 public class UserServlet extends HttpServlet {
 
     private UserService userService;
 
-    @Inject
-    public UserServlet(UserService userService) {this.userService = userService;}
+    @EJB
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 
     public static class Paths {
-        public static final String USER = "/api/user";
-        public static final String USERS = "/api/users";
+        public static final String USER = "/api/user/old";
+        public static final String USERS = "/api/users/old";
     }
 
     public static class Patterns {
@@ -70,8 +75,8 @@ public class UserServlet extends HttpServlet {
     }
 
     private void getUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Integer id = Integer.parseInt(ServletUtility.parseRequestPath(request).replaceAll("/", ""));
-        Optional<User> user = userService.getUser(id);
+        String username = ServletUtility.parseRequestPath(request).replaceAll("/", "");
+        Optional<User> user = userService.getUser(username);
 
         if (user.isPresent()) {
             response.setContentType(MimeTypes.APPLICATION_JSON);

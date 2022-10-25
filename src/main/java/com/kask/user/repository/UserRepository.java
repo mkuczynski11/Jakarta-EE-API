@@ -1,18 +1,16 @@
 package com.kask.user.repository;
 
-import com.kask.datastore.DataStore;
 import com.kask.repository.Repository;
 import com.kask.user.entity.User;
 
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
+import javax.enterprise.context.Dependent;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 import java.util.Optional;
 
-@RequestScoped
-public class UserRepository implements Repository<User, Integer> {
+@Dependent
+public class UserRepository implements Repository<User, String> {
 
     private EntityManager entityManager;
 
@@ -22,8 +20,8 @@ public class UserRepository implements Repository<User, Integer> {
     }
 
     @Override
-    public Optional<User> get(Integer id) {
-        return Optional.ofNullable(entityManager.find(User.class, id));
+    public Optional<User> get(String username) {
+        return Optional.ofNullable(entityManager.find(User.class, username));
     }
 
     @Override
@@ -38,7 +36,10 @@ public class UserRepository implements Repository<User, Integer> {
 
     @Override
     public void delete(User entity) {
-        entityManager.remove(entityManager.find(User.class, entity.getId()));
+        entityManager.createQuery("delete from Achievement a where a.user = :user")
+                .setParameter("user", entity)
+                .executeUpdate();
+        entityManager.remove(entityManager.find(User.class, entity.getUsername()));
     }
 
     @Override

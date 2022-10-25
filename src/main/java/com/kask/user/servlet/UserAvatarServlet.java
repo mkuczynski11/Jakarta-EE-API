@@ -5,8 +5,10 @@ import com.kask.servlet.MimeTypes;
 import com.kask.servlet.ServletUtility;
 import com.kask.user.entity.User;
 import com.kask.user.service.UserService;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -23,12 +25,13 @@ import java.util.Optional;
         UserAvatarServlet.Paths.AVATAR + "/*"
 })
 @MultipartConfig(maxFileSize = 800 * 1024)
+@NoArgsConstructor
 public class UserAvatarServlet extends HttpServlet {
 
     private UserService userService;
 
-    @Inject
-    public UserAvatarServlet(UserService userService) {
+    @EJB
+    public void setUserService(UserService userService){
         this.userService = userService;
     }
 
@@ -103,8 +106,8 @@ public class UserAvatarServlet extends HttpServlet {
     }
 
     private void getAvatar(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Integer id = Integer.parseInt(ServletUtility.parseRequestPath(request).replaceAll("/", ""));
-        Optional<User> user = userService.getUser(id);
+        String username = ServletUtility.parseRequestPath(request).replaceAll("/", "");
+        Optional<User> user = userService.getUser(username);
 
         if (user.isPresent() && user.get().getAvatar() != null) {
             response.addHeader(HttpHeaders.CONTENT_TYPE, MimeTypes.IMAGE_PNG);
@@ -116,9 +119,9 @@ public class UserAvatarServlet extends HttpServlet {
     }
 
     private void postAvatar(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        Integer id = Integer.parseInt(ServletUtility.parseRequestPath(request).replaceAll("/", ""));
+        String username = ServletUtility.parseRequestPath(request).replaceAll("/", "");
         Part avatar = request.getPart(Parameters.AVATAR);
-        Optional<User> user = userService.getUser(id);
+        Optional<User> user = userService.getUser(username);
         if (avatar != null && user.isPresent() && user.get().getAvatar() == null) {
             userService.updateAvatar(user.get(), avatar.getInputStream());
             response.setStatus(HttpServletResponse.SC_CREATED);
@@ -128,8 +131,8 @@ public class UserAvatarServlet extends HttpServlet {
     }
 
     private void deleteAvatar(HttpServletRequest request, HttpServletResponse response) {
-        Integer id = Integer.parseInt(ServletUtility.parseRequestPath(request).replaceAll("/", ""));
-        Optional<User> user = userService.getUser(id);
+        String username = ServletUtility.parseRequestPath(request).replaceAll("/", "");
+        Optional<User> user = userService.getUser(username);
         if (user.isPresent() && user.get().getAvatar() != null) {
             userService.deleteAvatar(user.get());
             response.setStatus(HttpServletResponse.SC_OK);
@@ -139,9 +142,9 @@ public class UserAvatarServlet extends HttpServlet {
     }
 
     private void updateAvatar(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        Integer id = Integer.parseInt(ServletUtility.parseRequestPath(request).replaceAll("/", ""));
+        String username = ServletUtility.parseRequestPath(request).replaceAll("/", "");
         Part avatar = request.getPart(Parameters.AVATAR);
-        Optional<User> user = userService.getUser(id);
+        Optional<User> user = userService.getUser(username);
         if (avatar != null && user.isPresent()) {
             userService.updateAvatar(user.get(), avatar.getInputStream());
             response.setStatus(HttpServletResponse.SC_CREATED);

@@ -1,19 +1,16 @@
 package com.kask.achievement.repository;
 
 import com.kask.achievement.entity.Achievement;
-import com.kask.datastore.DataStore;
 import com.kask.repository.Repository;
 
 import javax.enterprise.context.Dependent;
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-@RequestScoped
+@Dependent
 public class AchievementRepository implements Repository<Achievement, Integer> {
 
     private EntityManager entityManager;
@@ -28,9 +25,62 @@ public class AchievementRepository implements Repository<Achievement, Integer> {
         return Optional.ofNullable(entityManager.find(Achievement.class, achievementId));
     }
 
+    public Optional<Achievement> getByGame(String gameName, Integer achievementId) {
+        try {
+            return Optional.of(entityManager.createQuery("select a from Achievement a where a.id = :id and a.game.name = :gameName", Achievement.class)
+                    .setParameter("id", achievementId)
+                    .setParameter("gameName", gameName)
+                    .getSingleResult());
+        } catch (NoResultException e) {
+            return Optional.empty();
+        }
+    }
+
+    public Optional<Achievement> getByGameAndUser(String gameName, String username, Integer achievementId) {
+        try {
+            return Optional.of(entityManager.createQuery("select a from Achievement a where a.id = :id and a.game.name = :gameName and a.user.username = :username", Achievement.class)
+                    .setParameter("id", achievementId)
+                    .setParameter("gameName", gameName)
+                    .setParameter("username", username)
+                    .getSingleResult());
+        } catch(NoResultException e) {
+            return Optional.empty();
+        }
+    }
+
+    public Optional<Achievement> getByUser(String username, Integer achievementId) {
+        try {
+            return Optional.of(entityManager.createQuery("select a from Achievement a where a.id = :id and a.user.username = :username", Achievement.class)
+                    .setParameter("id", achievementId)
+                    .setParameter("username", username)
+                    .getSingleResult());
+        } catch(NoResultException e) {
+            return Optional.empty();
+        }
+    }
+
     @Override
     public List<Achievement> getAll() {
         return entityManager.createQuery("select a from Achievement a", Achievement.class).getResultList();
+    }
+
+    public List<Achievement> getAllByUser(String username) {
+        return entityManager.createQuery("select a from Achievement a where a.user.username = :username", Achievement.class)
+                .setParameter("username", username)
+                .getResultList();
+    }
+
+    public List<Achievement> getAllByGame(String gameName) {
+        return entityManager.createQuery("select a from Achievement a where a.game.name = :gameName", Achievement.class)
+                .setParameter("gameName", gameName)
+                .getResultList();
+    }
+
+    public List<Achievement> getAllByGameAndUser(String gameName, String username) {
+        return entityManager.createQuery("select a from Achievement a where a.user.username = :username and a.game.name = :gameName", Achievement.class)
+                .setParameter("username", username)
+                .setParameter("gameName", gameName)
+                .getResultList();
     }
 
     @Override

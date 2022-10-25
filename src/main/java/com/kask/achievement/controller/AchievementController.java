@@ -1,24 +1,27 @@
 package com.kask.achievement.controller;
 
-import com.kask.achievement.dto.GetAchievementResponse;
-import com.kask.achievement.dto.GetAchievementsResponse;
+import com.kask.achievement.controller.dto.GetAchievementResponse;
+import com.kask.achievement.controller.dto.GetAchievementsResponse;
 import com.kask.achievement.entity.Achievement;
 import com.kask.achievement.service.AchievementService;
+import com.kask.user.entity.UserRole;
+import lombok.NoArgsConstructor;
 
-import javax.inject.Inject;
+import javax.annotation.security.RolesAllowed;
+import javax.ejb.EJB;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Optional;
 
+@RolesAllowed(UserRole.USER)
 @Path("/achievements")
+@NoArgsConstructor
 public class AchievementController {
 
     private AchievementService achievementService;
 
-    public AchievementController(){}
-
-    @Inject
+    @EJB
     public void setAchievementService(AchievementService achievementService) {
         this.achievementService = achievementService;
     }
